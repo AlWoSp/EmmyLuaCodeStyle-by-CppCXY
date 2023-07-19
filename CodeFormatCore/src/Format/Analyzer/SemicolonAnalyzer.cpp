@@ -19,9 +19,6 @@ void SemicolonAnalyzer::Analyze(FormatState& f, const LuaSyntaxTree& t) {
 				auto text = syntaxNode.GetText(t);
 				switch (f.GetStyle().end_statement_with_semicolon) {
 					case EndStmtWithSemicolon::Always:
-						// TODO handle stray semicolons that are unnecessarily added!
-						/*if (syntaxNode.GetTextRange(t).Length < 2)
-							break;*/
 						if (!EndsWithSemicolon(syntaxNode, t)) {
 							AddSemicolon(syntaxNode, t);
 						}
