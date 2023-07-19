@@ -116,7 +116,8 @@ void CodeStyleChecker::BasicResolve(LuaSyntaxNode syntaxNode, const LuaSyntaxTre
 
         switch (resolve.GetTokenAddStrategy()) {
             case TokenAddStrategy::StmtEndSemicolon:
-                d.PushDiagnostic(DiagnosticType::Semicolon, textRange,
+                d.PushDiagnostic(DiagnosticType::Semicolon, 
+                    TextRange(textRange.GetEndOffset(), 1),
                     LText("Missing ; at end of statement"));
                 break;
             default:
@@ -132,18 +133,6 @@ void CodeStyleChecker::BasicResolve(LuaSyntaxNode syntaxNode, const LuaSyntaxTre
                 break;
             }
             case NextSpaceStrategy::LineBreak: {
-                break;
-            }
-            default: {
-                break;
-            }
-        }
-    }
-    if (syntaxNode.IsNode(t)) {
-        auto textRange = syntaxNode.GetTextRange(t);
-        switch (resolve.GetTokenStrategy()) {
-            case TokenStrategy::StmtEndSemicolon: {
-                d.PushDiagnostic(DiagnosticType::Indent, textRange, LText("semicolon diagnostic"));
                 break;
             }
             default: {
