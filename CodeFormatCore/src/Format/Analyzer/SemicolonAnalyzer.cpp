@@ -4,7 +4,6 @@
 #include <LuaParser/Lexer/LuaTokenTypeDetail.h>
 
 SemicolonAnalyzer::SemicolonAnalyzer() {
-
 }
 
 void SemicolonAnalyzer::Analyze(FormatState& f, const LuaSyntaxTree& t) {

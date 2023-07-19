@@ -98,7 +98,7 @@ void CodeStyleChecker::BasicResolve(LuaSyntaxNode syntaxNode, const LuaSyntaxTre
                 switch (d.GetState().GetStyle().end_statement_with_semicolon) {
                     case EndStmtWithSemicolon::Never: 
                         d.PushDiagnostic(DiagnosticType::Semicolon, textRange,
-                            LText("Statement should not end with ;"));
+                            LText("expected statement not to end with ;"));
                         break;
                     case EndStmtWithSemicolon::SameLine:
                         d.PushDiagnostic(DiagnosticType::Semicolon, textRange,
@@ -118,7 +118,7 @@ void CodeStyleChecker::BasicResolve(LuaSyntaxNode syntaxNode, const LuaSyntaxTre
             case TokenAddStrategy::StmtEndSemicolon:
                 d.PushDiagnostic(DiagnosticType::Semicolon, 
                     TextRange(textRange.GetEndOffset(), 1),
-                    LText("Missing ; at end of statement"));
+                    LText("expected ; at end of statement"));
                 break;
             default:
                 break;
