@@ -1,7 +1,6 @@
 #include "CodeFormatCore/Format/Analyzer/SemicolonAnalyzer.h"
 #include "CodeFormatCore/Format/FormatState.h"
 #include "CodeFormatCore/Config/LuaStyleEnum.h"
-#include <iostream>
 #include <LuaParser/Lexer/LuaTokenTypeDetail.h>
 
 SemicolonAnalyzer::SemicolonAnalyzer() {
